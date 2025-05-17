@@ -1,6 +1,18 @@
 class Coffee:
-    def __init__(self, name):
+    def __init__(self, name=""):
         self.name = name
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def name(self, value):
+        if len(value) < 3:
+            return "Name length must be greater or equal to 3"
+        if hasattr(self, '_name'):
+            return "cannot change coffee name"
+        self._name = value
+   
+
         
     def orders(self):
         pass
@@ -15,9 +27,19 @@ class Coffee:
         pass
 
 class Customer:
-    def __init__(self, name):
+    def __init__(self, name=""):
         self.name = name
-        
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def name(self, value):
+        if 1>= len(value) <=15:
+            self._name = value
+        else:
+            return "name must be between 1 and 25"
+
+
     def orders(self):
         pass
     
@@ -32,3 +54,10 @@ class Order:
         self.customer = customer
         self.coffee = coffee
         self.price = price
+
+Customer = Customer("dennis")
+  
+
+
+
+

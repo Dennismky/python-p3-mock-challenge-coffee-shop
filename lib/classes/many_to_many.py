@@ -4,6 +4,7 @@ class Coffee:
     @property
     def name(self):
         return self._name
+    
     @name.setter
     def name(self, value):
         if len(value) < 3:
@@ -11,7 +12,7 @@ class Coffee:
         if hasattr(self, '_name'):
             return "cannot change coffee name"
         self._name = value
-   
+    
 
         
     def orders(self):
@@ -48,15 +49,22 @@ class Customer:
     
     def create_order(self, coffee, price):
         pass
+
+
     
 class Order:
+    all_orders = []
+
     def __init__(self, customer, coffee, price):
         self.customer = customer
         self.coffee = coffee
         self.price = price
+        order.all_orders.append(self)
+
     @property
     def price(self):
-        self._name
+        return self._name
+    
     @price.setter
     def name(self, value):
         if 1.0 <  len(value) > 10.0:
@@ -66,6 +74,21 @@ class Order:
         if hasattr("_name"):
             return "cannot change attrubute name"
         self._price = value
+
+    @customer.setter
+    def customer(self, value):
+        if not isinstance(value, Customer):
+            return "Customer must be a coffee class instance"
+        self._customer = value
+       
+    @coffee.setter
+    def coffee(self, value):
+        if not isinstance(value, Coffee):
+            return ("Coffee must be instance of class Coffee")
+        self._coffee = value
+
+        
+
 
         
 

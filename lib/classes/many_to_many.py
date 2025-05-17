@@ -54,8 +54,22 @@ class Order:
         self.customer = customer
         self.coffee = coffee
         self.price = price
+    @property
+    def price(self):
+        self._name
+    @price.setter
+    def name(self, value):
+        if 1.0 <  len(value) > 10.0:
+            return "Price must be between 1.0 and 10.0"
+        if not isinstance(value, float):
+            raise TypeError("Price must be a float")
+        if hasattr("_name"):
+            return "cannot change attrubute name"
+        self._price = value
 
-Customer = Customer("dennis")
+        
+
+
   
 
 
